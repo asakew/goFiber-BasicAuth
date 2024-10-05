@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"BasicAuth/internal/pkg/database"
+	"BasicAuth/internal/database"
 	"github.com/gofiber/fiber/v2"
 	"log"
 )

@@ -1,7 +1,7 @@
 package server
 
 import (
-	"BasicAuth/internal/pkg/database"
+	"BasicAuth/internal/database"
 	"BasicAuth/internal/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/basicauth"
