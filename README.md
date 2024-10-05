@@ -1,9 +1,11 @@
 # goFiber-BasicAuth
-**Basic Authentication middleware for Fiber that provides an HTTP basic authentication.**
-Full Docs: https://docs.gofiber.io/api/middleware/basicauth
+* Basic Authentication middleware for Fiber that provides an HTTP: https://docs.gofiber.io/api/middleware/basicauth
+* Session: https://docs.gofiber.io/api/middleware/session
+* Cache: https://docs.gofiber.io/api/middleware/cache
 
 ## Features
-* Database PostgreSQL + GORM + .env + users_db, posts_db 
+* Standard Go Project Layout: https://github.com/golang-standards/project-layout
+* Database PostgreSQL + GORM + .env + users_db, posts_db
 #### Create .env file:
 ```ENV
 DB_USER=postgres
