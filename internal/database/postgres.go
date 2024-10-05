@@ -15,7 +15,7 @@ var (
 func ConnectDB() {
 	var err error
 	// Database DSN
-	userDSN := "host=localhost user=postgres password=Root dbname=BasicAuth_db port=5432 sslmode=disable timezone=Asia/Vladivostok"
+	userDSN := "host=localhost user=postgres password=Root dbname=users_db port=5432 sslmode=disable timezone=Asia/Vladivostok"
 	postDSN := "host=localhost user=postgres password=Root dbname=posts_db port=5432 sslmode=disable timezone=Asia/Vladivostok"
 
 	// Connect to the database
