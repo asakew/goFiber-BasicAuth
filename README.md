@@ -14,6 +14,14 @@ DB_NAME=postgres
 DB_SSLMODE=disable
 ```
 
+## authConfig
+```go
+authConfig := basicauth.Config{
+	Users: map[string]string{
+		"admin": "password123",},
+}
+```
+
 ## Getting Started
 Github: https://github.com/asakew/goFiber-BasicAuth
 ```bash
@@ -25,8 +33,6 @@ git clone https://github.com/asakew/goFiber-BasicAuth
 go mod tidy # updates go.mod and go.sum
 go run app/main.go # runs the binary
 ```
-
-
 
 ## Build
 ```bash
