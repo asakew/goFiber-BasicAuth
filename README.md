@@ -36,7 +36,6 @@ password := c.FormValue("password")
 }
 ```
 
-
 ## Getting Started
 Github: https://github.com/asakew/goFiber-BasicAuth
 ```bash
@@ -52,8 +51,8 @@ go run app/main.go
 ## Stop Running
 ```bash
 CTRL + C # Windows
-CTRL + Z # Unix
-option + q # Mac
+CTRL + Break # Linux
+Control + C # Mac
 ```
 
 ## Build
