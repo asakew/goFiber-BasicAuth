@@ -7,21 +7,40 @@ import (
 	"log"
 )
 
-var UsersDB *gorm.DB
+var (
+	UsersDB *gorm.DB
+	PostsDB *gorm.DB
+)
 
 func ConnectDB() {
 	var err error
-	dsn := "host=localhost user=postgres password=Root dbname=BasicAuth_db port=5432 sslmode=disable" // Update with your credentials
-	UsersDB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	// Database DSN
+	userDSN := "host=localhost user=postgres password=Root dbname=BasicAuth_db port=5432 sslmode=disable timezone=Asia/Vladivostok"
+	postDSN := "host=localhost user=postgres password=Root dbname=posts_db port=5432 sslmode=disable timezone=Asia/Vladivostok"
+
+	// Connect to the database
+	UsersDB, err = gorm.Open(postgres.Open(userDSN), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Could not connect to the database: %v", err)
 	}
 
-	// Auto migrate the User model
-	err = UsersDB.AutoMigrate(&models.User{})
+	PostsDB, err = gorm.Open(postgres.Open(postDSN), &gorm.Config{})
+	if err != nil {
+		log.Fatalf("Could not connect to the database: %v", err)
+	}
+
+	AutoMigrate() // Migrate the database
+
+	log.Println("Connected to the database!")
+}
+
+func AutoMigrate() {
+	err := UsersDB.AutoMigrate(&models.User{})
 	if err != nil {
 		return
 	}
-
-	log.Println("Connected to the database!")
+	err = PostsDB.AutoMigrate(&models.Post{})
+	if err != nil {
+		return
+	}
 }

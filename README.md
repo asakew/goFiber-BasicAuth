@@ -5,16 +5,7 @@
 
 ## Features
 * Standard Go Project Layout: https://github.com/golang-standards/project-layout
-* Database PostgreSQL + GORM + .env + users_db, posts_db
-#### Create .env file:
-```ENV
-DB_USER=postgres
-DB_PASSWORD=postgres
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=postgres
-DB_SSLMODE=disable
-```
+* Database PostgreSQL GORM: + users_db, posts_db
 
 ## authConfig
 ```go
