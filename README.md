@@ -43,9 +43,17 @@ Github: https://github.com/asakew/goFiber-BasicAuth
 git clone https://github.com/asakew/goFiber-BasicAuth
 ```
 
-## updates go.mod and go.sum
+## Updates go.mod and go.sum and running 
 ```bash
 go mod tidy
+go run app/main.go
+```
+
+## Stop Running
+```bash
+CTRL + C # Windows
+CTRL + Z # Unix
+option + q # Mac
 ```
 
 ## Build
@@ -53,5 +61,4 @@ go mod tidy
 go mod tidy # updates go.mod and go.sum
 go mod download # downloads all the dependencies
 go build # builds the binary
-./main # runs the binary
 ```
