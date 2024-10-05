@@ -21,6 +21,21 @@ authConfig := basicauth.Config{
 		"admin": "password123",},
 }
 ```
+file: /internal/handlers/user.go
+```go
+func HandleLogin(c *fiber.Ctx) error {
+username := c.FormValue("username")
+password := c.FormValue("password")
+
+	// Authentication logic (use database to validate user)
+	// Placeholder logic for demonstration
+	if username == "admin" && password == "password123" {
+		return c.Redirect("/", fiber.StatusSeeOther)
+	}
+	return c.SendStatus(fiber.StatusUnauthorized)
+}
+```
+
 
 ## Getting Started
 Github: https://github.com/asakew/goFiber-BasicAuth
