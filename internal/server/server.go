@@ -25,7 +25,8 @@ func Run() {
 	// Basic Auth
 	authConfig := basicauth.Config{
 		Users: map[string]string{
-			"admin": "password123",
+			"admin":    "password123",
+			"testUser": "testUser",
 		},
 	}
 
