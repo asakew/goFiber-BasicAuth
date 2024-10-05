@@ -15,10 +15,10 @@ func Run() {
 	engine := html.New("./web/templates", ".html") // Load Template
 
 	app := fiber.New(fiber.Config{
-		Views: engine,
+		Views: engine, // Set Views Engine
 	})
 
-	database.InitDB()
+	database.ConnectDB() // Connect to Database
 
 	app.Static("/web/assets", "./web/assets")
 

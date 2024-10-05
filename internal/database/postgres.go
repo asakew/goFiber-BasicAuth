@@ -1,35 +1,27 @@
 package database
 
 import (
-	"database/sql"
-	"fmt"
+	"BasicAuth/internal/models"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"log"
-	"os"
-
-	_ "github.com/jackc/pgx/v4/stdlib"
-	"github.com/joho/godotenv"
 )
 
-var DB *sql.DB
+var UsersDB *gorm.DB
 
-func InitDB() {
-	err := godotenv.Load()
+func ConnectDB() {
+	var err error
+	dsn := "host=localhost user=postgres password=Root dbname=BasicAuth_db port=5432 sslmode=disable" // Update with your credentials
+	UsersDB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		log.Fatalf("Could not connect to the database: %v", err)
 	}
 
-	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable",
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_NAME"),
-	)
-
-	db, err := sql.Open("pgx", dsn)
+	// Auto migrate the User model
+	err = UsersDB.AutoMigrate(&models.User{})
 	if err != nil {
-		log.Fatal(err)
+		return
 	}
 
-	DB = db
+	log.Println("Connected to the database!")
 }
