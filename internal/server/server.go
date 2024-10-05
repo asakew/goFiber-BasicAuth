@@ -37,7 +37,7 @@ func Run() {
 	app.Use(cors.New())
 
 	routes.UserHandlers(app)
-	
+
 	err := app.Listen(":3000")
 	if err != nil {
 		return

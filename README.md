@@ -3,7 +3,7 @@
 Full Docs: https://docs.gofiber.io/api/middleware/basicauth
 
 ## Features
-* Database PostgreSQL + GORM + .env 
+* Database PostgreSQL + GORM + .env + users_db, posts_db 
 #### Create .env file:
 ```ENV
 DB_USER=postgres
@@ -28,10 +28,9 @@ Github: https://github.com/asakew/goFiber-BasicAuth
 git clone https://github.com/asakew/goFiber-BasicAuth
 ```
 
-## Server
+## updates go.mod and go.sum
 ```bash
-go mod tidy # updates go.mod and go.sum
-go run app/main.go # runs the binary
+go mod tidy
 ```
 
 ## Build
