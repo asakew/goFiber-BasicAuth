@@ -31,7 +31,7 @@ func ConnectDB() {
 
 	AutoMigrate() // Migrate the database
 
-	log.Println("Connected to the database!")
+	log.Println("Connected to the database!: users_db and posts_db")
 }
 
 func AutoMigrate() {
