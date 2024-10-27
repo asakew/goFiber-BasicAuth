@@ -6,7 +6,7 @@ import (
 )
 
 func UserHandlers(app *fiber.App) {
-	app.Get("/", handlers.Home)
+	app.Get("/", handlers.FrontPage)
 	app.Get("/login", handlers.Login)
 	app.Post("/login", handlers.HandleLogin)
 	app.Get("/register", handlers.Register)

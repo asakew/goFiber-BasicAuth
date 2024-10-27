@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func Home(c *fiber.Ctx) error {
+func FrontPage(c *fiber.Ctx) error {
 	return c.Render("index", nil)
 }
 
