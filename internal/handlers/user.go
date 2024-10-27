@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"BasicAuth/internal/database"
-	"BasicAuth/internal/models"
 	"github.com/gofiber/fiber/v2"
 	"log"
 )
@@ -25,30 +23,6 @@ func HandleLogin(c *fiber.Ctx) error {
 		return c.Redirect("/", fiber.StatusSeeOther)
 	}
 	return c.SendStatus(fiber.StatusUnauthorized)
-}
-
-func Register(c *fiber.Ctx) error {
-	return c.Render("register", nil)
-}
-
-func HandleRegister(c *fiber.Ctx) error {
-	username := c.FormValue("username")
-	password := c.FormValue("password")
-
-	if username == "" || password == "" {
-		return c.SendStatus(fiber.StatusBadRequest)
-	}
-
-	// Save User to Database using GORM
-	user := models.User{Username: username, Password: password}
-	result := database.UsersDB.Create(&user)
-	if result.Error != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": result.Error.Error(),
-		})
-	}
-
-	return c.Redirect("/login", fiber.StatusSeeOther)
 }
 
 func Logout(c *fiber.Ctx) error {

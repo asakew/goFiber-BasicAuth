@@ -9,7 +9,5 @@ func UserHandlers(app *fiber.App) {
 	app.Get("/", handlers.FrontPage)
 	app.Get("/login", handlers.Login)
 	app.Post("/login", handlers.HandleLogin)
-	app.Get("/register", handlers.Register)
-	app.Post("/register", handlers.HandleRegister)
 	app.Get("/logout", handlers.Logout)
 }
